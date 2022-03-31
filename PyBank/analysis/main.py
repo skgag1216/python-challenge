@@ -1,15 +1,23 @@
 import os
 import csv
 
-budget_data_csv = ("Resources\\budget_data.csv")
-
-with open(budget_data_csv) as csv_file:
+bd_csv = ("PyBank\\Resources\\budget_data.csv")
+with open(bd_csv) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
     csv_header = next(csv_file) 
-    print(f"Header: {csv_header}")
-    # for row in csv_reader:
-    #     line_count = 0
-    # if line_count == 0:
-    #     print(f'Column names are {(row[0])}')
-    #     line_count += 1
-    
+     # print(f"Header: {csv_header}")
+
+count = 0
+with open(bd_csv) as count_file:
+    csv_reader = csv.reader(count_file)
+    for row in csv_reader:
+        count += 1
+    months = count - 1 #subtract 1 for the header row
+   # print(months)
+
+
+
+
+print("Financial Analysis")
+print("-----------------------")
+print("Total number of months: " + str(months))
