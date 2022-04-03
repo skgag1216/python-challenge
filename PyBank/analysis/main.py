@@ -1,7 +1,7 @@
 import os
 import csv
 
-wrtxtfl = open("pybank_final_analysis.txt", "a")
+wrtxtfl = open("pybank_final_analysis.txt", "w")
 
 bd_csv = ("Resources\\budget_data.csv")
 with open(bd_csv) as csv_file:
@@ -33,16 +33,14 @@ with open(bd_csv) as csv_file:
 average_change = sum(overall_change)/len(overall_change)
 #print(sum(overall_change)/len(overall_change))
 
-def printfinalanalysis ():
-    print("Financial Analysis")
-    print("-----------------------")
-    print("Total months: " + str(month))
-    print("Total net of Profits/Losses: " + "$" + str(net_budget))
-    print("Average change: " +"$" + str(round(average_change, 2)))
-    print("Greatest increase in profits: " + greatest_inc_date + " $" + str(greatest_inc))
-    print("Greatest decrease in profits: " + greatest_dec_date + " $" + str(greatest_dec))
+L1 = "Financial Analysis"
+L2 = "-----------------------"
+L3 = "Total months: " + str(month)
+L4 = "Total net of Profits/Losses: " + "$" + str(net_budget)
+L5 = "Average change: " +"$" + str(round(average_change, 2))
+L6 = "Greatest increase in profits: " + greatest_inc_date + " $" + str(greatest_inc)
+L7 = "Greatest decrease in profits: " + greatest_dec_date + " $" + str(greatest_dec)
+L8 = '\n'+L1+'\n'+L2+'\n'+L3+'\n'+L4+'\n'+L5+'\n'+L6+'\n'+L7+'\n'
 
-printfinalanalysis()
-
-wrtxtfl.write(str(printfinalanalysis()))
-wrtxtfl.close()
+print(L8)
+wrtxtfl.write(L8)
