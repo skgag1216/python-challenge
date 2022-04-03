@@ -1,8 +1,7 @@
 import os
 import csv
-from numpy import maximum
 
-from sympy import Max 
+wrtxtfl = open("pybank_final_analysis.txt", "a")
 
 bd_csv = ("Resources\\budget_data.csv")
 with open(bd_csv) as csv_file:
@@ -34,10 +33,16 @@ with open(bd_csv) as csv_file:
 average_change = sum(overall_change)/len(overall_change)
 #print(sum(overall_change)/len(overall_change))
 
-print("Financial Analysis")
-print("-----------------------")
-print("Total months: " + str(month))
-print("Total net of Profits/Losses: " + "$" + str(net_budget))
-print("Average change: " +"$" + str(round(average_change, 2)))
-print("Greatest increase in profits: " + greatest_inc_date + " $" + str(greatest_inc))
-print("Greatest decrease in profits: " + greatest_dec_date + " $" + str(greatest_dec))
+def printfinalanalysis ():
+    print("Financial Analysis")
+    print("-----------------------")
+    print("Total months: " + str(month))
+    print("Total net of Profits/Losses: " + "$" + str(net_budget))
+    print("Average change: " +"$" + str(round(average_change, 2)))
+    print("Greatest increase in profits: " + greatest_inc_date + " $" + str(greatest_inc))
+    print("Greatest decrease in profits: " + greatest_dec_date + " $" + str(greatest_dec))
+
+printfinalanalysis()
+
+wrtxtfl.write(str(printfinalanalysis()))
+wrtxtfl.close()
