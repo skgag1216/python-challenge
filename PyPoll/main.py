@@ -30,10 +30,12 @@ with open(election_csv) as csv_file:
         totalrows = total_votes
         percofvote = round(votes_per_cand[count]/totalrows*100, 3)
         percent.append(percofvote)
-        f.write(str(print(f'{candidates[count]}:{percent[count]}% ({votes_per_cand[count]})')))
+        f.write((f"{candidates[count]}:{percent[count]}% ({votes_per_cand[count]})")+'\n')
         if votes_per_cand[count] > max_vote:
             max_vote = votes_per_cand[count]
             maxcountindex = count
             winner = candidates[maxcountindex]
-    f.write(str((print("Winner: " + winner))))
+            LL = "Winner: " + winner
+f.write('\n')            
+f.write(LL)
 
