@@ -21,6 +21,8 @@ with open(election_csv) as csv_file:
         else:
             candidates.append(candidate)
             votes_per_cand.append(1)
+    f.write("Election Results: " + '\n' + '\n')            
+    f.write("Total Votes: " + str(total_votes) + '\n' + '\n')
     percent = []
     votes = []
     max_vote = 0
