@@ -1,5 +1,8 @@
 import os 
 import csv 
+
+f = open("final_analysis_pypoll.txt", "w")
+
 election_csv = ("Resources\election_data.csv")
 with open(election_csv) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=",")
@@ -18,15 +21,19 @@ with open(election_csv) as csv_file:
         else:
             candidates.append(candidate)
             votes_per_cand.append(1)
+    percent = []
+    votes = []
+    max_vote = 0
+    for count in range(len(candidates)): 
+        name = candidate[count]
+        #votes.append(candidates.count[name])
+        totalrows = total_votes
+        percofvote = round(votes_per_cand[count]/totalrows*100, 3)
+        percent.append(percofvote)
+        f.write(str(print(f'{candidates[count]}:{percent[count]}% ({votes_per_cand[count]})')))
+        if votes_per_cand[count] > max_vote:
+            max_vote = votes_per_cand[count]
+            maxcountindex = count
+            winner = candidates[maxcountindex]
+    f.write(str((print("Winner: " + winner))))
 
-#percent_of_vote = ((votes_per_cand/total_votes)*100)
-
-L0 = "Election Results"
-L1 = "-----------------------"       
-L2 = ("Total Votes:" + str(total_votes))
-L2n = "-----------------------"
-L3 = (str(candidates[0]) + ": " + str(votes_per_cand[0]) + " " + str(((votes_per_cand[0])/total_votes)*100))
-L4 = (str(candidates[1]) + ": " + str(votes_per_cand[1]) + " " + str(((votes_per_cand[1])/total_votes)*100))
-L5 = (str(candidates[2]) + ": " + str(votes_per_cand[2]) + " " + str(((votes_per_cand[2])/total_votes)*100))
-lastL = "\n"+L0+"\n"+L1+"\n"+L2+"\n"+L2n+"\n"+L3+"\n"+L4+"\n"+L5+"\n"
-print(lastL)
