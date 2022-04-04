@@ -14,7 +14,6 @@ with open(election_csv) as csv_file:
     for row in csv_reader:
         total_votes += 1
         candidate = str(row[2])
-        #candidates.sort()
         if candidate in candidates:
             i = candidates.index(candidate)
             votes_per_cand[i] += 1 
@@ -24,11 +23,11 @@ with open(election_csv) as csv_file:
     f.write("Election Results: " + '\n' + '\n')            
     f.write("Total Votes: " + str(total_votes) + '\n' + '\n')
     percent = []
-    votes = []
+    # #votes = []
     max_vote = 0
-    for count in range(len(candidates)): 
-        name = candidate[count]
-        #votes.append(candidates.count[name])
+    for count in range(len(candidates)): # or can use range (0, 3)
+        # #name = candidate[count]
+        # #votes.append(candidates.count[name])
         totalrows = total_votes
         percofvote = round(votes_per_cand[count]/totalrows*100, 3)
         percent.append(percofvote)
